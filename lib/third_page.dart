@@ -22,6 +22,18 @@ class _ThirdPageState extends State<ThirdPage> {
       appBar: AppBar(
         title: const Text("Third Page"),
       ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            ListTile(
+              title: const Text("Home"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           TextFormField(

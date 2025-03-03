@@ -41,57 +41,31 @@ class MyScaffoldApp extends StatefulWidget {
 class _MyScaffoldAppState extends State<MyScaffoldApp> {
   bool myNewButton = false;
   String myText = "Hello";
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Hello world"),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            
-            Container(
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                color: Colors.pinkAccent,
-              ),
-              child: const Text("Whatever"),
-            ),
-            Image.network(
-                "https://media.istockphoto.com/id/1403500817/photo/the-craggies-in-the-blue-ridge-mountains.jpg?s=612x612&w=0&k=20&c=N-pGA8OClRVDzRfj_9AqANnOaDS3devZWwrQNwZuDSk="),
-            Image.asset("images/matrix.jpg"),
-          ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal, brightness: Brightness.dark)),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Flutter Learn"),
+          centerTitle: true,
         ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blue,
-        child: Row(
-          children: [
-            Spacer(),
-            IconButton(
-                icon: const Icon(
-                  Icons.home,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(SecondPage.routeName);
-                }),
-            Spacer(),
-            IconButton(
-                icon: const Icon(
-                  Icons.notifications_active,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(ThirdPage.routeName);
-                }),
-            Spacer(),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           ],
+          onDestinationSelected: (int value){
+            setState((){
+              selectedIndex = value;
+            });
+          },
+          selectedIndex: selectedIndex,
         ),
       ),
     );
