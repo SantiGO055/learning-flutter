@@ -53,17 +53,7 @@ class _MyScaffoldAppState extends State<MyScaffoldApp> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ElevatedButton(child: const Text("My button"), onPressed: () {}),
-            Container(
-              height: 200,
-              width: 100,
-              color: Colors.indigo,
-              child: Row(
-                children: [
-                  Text(myNewButton ? "This is true" : myText),
-                ],
-              ),
-            ),
+            
             Container(
               padding: const EdgeInsets.all(10),
               margin: const EdgeInsets.all(20),
