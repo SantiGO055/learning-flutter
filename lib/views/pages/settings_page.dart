@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -17,7 +22,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Settings"),
+        title: Text(widget.title),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -43,12 +48,14 @@ class _SettingsPageState extends State<SettingsPage> {
               Checkbox.adaptive(
                   tristate: true,
                   value: isChecked,
-                  onChanged: (bool? value) => setState(() => isChecked = value)),
+                  onChanged: (bool? value) =>
+                      setState(() => isChecked = value)),
               CheckboxListTile.adaptive(
                   tristate: true,
                   title: Text("Click me"),
                   value: isChecked,
-                  onChanged: (bool? value) => setState(() => isChecked = value)),
+                  onChanged: (bool? value) =>
+                      setState(() => isChecked = value)),
               Switch.adaptive(
                   value: isSwitched,
                   onChanged: (bool value) {
