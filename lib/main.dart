@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test/second_page.dart';
 import 'package:flutter_app_test/third_page.dart';
+import 'package:flutter_app_test/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +42,6 @@ class MyScaffoldApp extends StatefulWidget {
 class _MyScaffoldAppState extends State<MyScaffoldApp> {
   bool myNewButton = false;
   String myText = "Hello";
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +50,7 @@ class _MyScaffoldAppState extends State<MyScaffoldApp> {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.teal, brightness: Brightness.dark)),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter Learn"),
-          centerTitle: true,
-        ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-          ],
-          onDestinationSelected: (int value){
-            setState((){
-              selectedIndex = value;
-            });
-          },
-          selectedIndex: selectedIndex,
-        ),
-      ),
+      home: WidgetTree(),
     );
   }
 }

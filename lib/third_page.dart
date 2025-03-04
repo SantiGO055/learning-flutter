@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
