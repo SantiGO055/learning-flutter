@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_test/second_page.dart';
 import 'package:flutter_app_test/third_page.dart';
+import 'package:flutter_app_test/views/data/notifiers.dart';
 import 'package:flutter_app_test/views/widget_tree.dart';
 
 void main() {
@@ -45,12 +46,19 @@ class _MyScaffoldAppState extends State<MyScaffoldApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.teal, brightness: Brightness.dark)),
-      home: WidgetTree(),
-    );
+    return ValueListenableBuilder(
+        valueListenable: isDarkModeNotifier,
+        builder: (context, isDarkMode, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.teal,
+                brightness: isDarkMode ? Brightness.dark : Brightness.light,
+              ),
+            ),
+            home: WidgetTree(),
+          );
+        });
   }
 }
