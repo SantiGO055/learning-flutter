@@ -31,8 +31,12 @@ class WidgetTree extends StatelessWidget {
           ),
           IconButton(
               onPressed: () {
-                Navigator.push(context, //pushReplacement se suele usar cuando se usa login y despues se redirige al home, borra la pila de navegacion
-                    MaterialPageRoute(builder: (context) => SettingsPage(title: 'Settingaaas',)));
+                Navigator.push(
+                    context, //pushReplacement se suele usar cuando se usa login y despues se redirige al home, borra la pila de navegacion
+                    MaterialPageRoute(
+                        builder: (context) => SettingsPage(
+                              title: 'Settingaaas',
+                            )));
               },
               icon: Icon(Icons.settings))
         ],

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_test/second_page.dart';
 import 'package:flutter_app_test/third_page.dart';
 import 'package:flutter_app_test/views/data/notifiers.dart';
-import 'package:flutter_app_test/views/widget_tree.dart';
+import 'package:flutter_app_test/views/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +57,7 @@ class _MyScaffoldAppState extends State<MyScaffoldApp> {
                 brightness: isDarkMode ? Brightness.dark : Brightness.light,
               ),
             ),
-            home: WidgetTree(),
+            home: WelcomePage(),
           );
         });
   }
