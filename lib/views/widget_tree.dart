@@ -35,7 +35,7 @@ class WidgetTree extends StatelessWidget {
                     context, //pushReplacement se suele usar cuando se usa login y despues se redirige al home, borra la pila de navegacion
                     MaterialPageRoute(
                         builder: (context) => SettingsPage(
-                              title: 'Settingaaas',
+                              title: 'Settings',
                             )));
               },
               icon: Icon(Icons.settings))
@@ -43,7 +43,7 @@ class WidgetTree extends StatelessWidget {
       ),
       bottomNavigationBar: NavbarWidget(),
       body: ValueListenableBuilder(
-          valueListenable: selectedPageNotifier,
+          valueListenable: selectedPageNotifier, //lee el valor de notifier
           builder: (context, selectedPage, child) =>
               pages.elementAt(selectedPage)),
     );

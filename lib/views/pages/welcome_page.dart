@@ -19,7 +19,7 @@ class WelcomePage extends StatelessWidget {
                   Navigator.pushReplacement(
                       context, //pushReplacement se suele usar cuando se usa login y despues se redirige al home, borra la pila de navegacion
                       MaterialPageRoute(
-                          builder: (context) => WidgetTree()));
+                          builder: (context) => WidgetTree())); //widgetTree viene a usarse para listado de widgets y navegar entre paginas
                 },
                 child: Text("Login"))
           ],

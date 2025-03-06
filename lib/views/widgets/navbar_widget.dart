@@ -7,7 +7,7 @@ class NavbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: selectedPageNotifier,
+        valueListenable: selectedPageNotifier, //lee el valor de notifier
         builder: (context, selectedPage, child) {
           return NavigationBar(
             destinations: [
@@ -15,7 +15,7 @@ class NavbarWidget extends StatelessWidget {
               NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
             ],
             onDestinationSelected: (int value) {
-              selectedPageNotifier.value = value;
+              selectedPageNotifier.value = value; //actualiza el valor de notifiers
             },
             selectedIndex: selectedPage,
           );
