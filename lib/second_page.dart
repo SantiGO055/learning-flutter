@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/third_page.dart';
+import 'package:app_incense/third_page.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});

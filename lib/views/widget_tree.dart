@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/views/data/notifiers.dart';
-import 'package:flutter_app_test/views/pages/home_page.dart';
-import 'package:flutter_app_test/views/pages/profile_page.dart';
-import 'package:flutter_app_test/views/pages/settings_page.dart';
-import 'package:flutter_app_test/views/widgets/navbar_widget.dart';
+import 'package:app_incense/views/data/constants.dart';
+import 'package:app_incense/views/data/notifiers.dart';
+import 'package:app_incense/views/pages/home_page.dart';
+import 'package:app_incense/views/pages/profile_page.dart';
+import 'package:app_incense/views/pages/settings_page.dart';
+import 'package:app_incense/views/widgets/navbar_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pages = [const HomePage(), const ProfilePage()];
 
@@ -18,8 +20,12 @@ class WidgetTree extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
+              await prefs.setBool(
+                  KConstants.themeModeKey, isDarkModeNotifier.value);
             },
             icon: ValueListenableBuilder(
                 valueListenable: isDarkModeNotifier,
@@ -34,9 +40,7 @@ class WidgetTree extends StatelessWidget {
                 Navigator.push(
                     context, //pushReplacement se suele usar cuando se usa login y despues se redirige al home, borra la pila de navegacion
                     MaterialPageRoute(
-                        builder: (context) => SettingsPage(
-                              title: 'Settingaaas',
-                            )));
+                        builder: (context) => SettingsPage()));
               },
               icon: Icon(Icons.settings))
         ],

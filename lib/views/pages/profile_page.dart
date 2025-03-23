@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/views/data/notifiers.dart';
-import 'package:flutter_app_test/views/pages/welcome_page.dart'; 
+import 'package:app_incense/views/data/notifiers.dart';
+import 'package:app_incense/views/pages/welcome_page.dart'; 
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -11,6 +11,10 @@ class ProfilePage extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
+          CircleAvatar(
+            radius: 50.0,
+            backgroundImage: AssetImage('assets/images/person.png'), //AssetImage solo se usa en el circle avatar
+          ),
           ListTile(
             title: Text('Logout'),
             onTap: (){

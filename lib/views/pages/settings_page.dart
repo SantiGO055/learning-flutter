@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../data/notifiers.dart';
+import '../widgets/bottom_modal.dart';
+
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
-    super.key,
-    required this.title,
+    super.key
   });
-
-  final String title;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -22,7 +22,10 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: ValueListenableBuilder(
+          valueListenable: titleSettings,
+          builder: (context, selectedPage, child) =>
+              Text(titleSettings.value)),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,6 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             })));
                   },
                   child: Text("Open Snackbar")),
+              BottomModal(),
               DropdownButton(
                   value: dropdownValue,
                   items: [
@@ -96,9 +100,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Text(sliderValue.toInt().toString()),
               InkWell(
                   splashColor: Colors.teal,
-                  onTap: () {
-                    print("Tapped");
-                  },
+                  onTap: () {},
                   child: Container(
                     height: 200,
                     width: double.infinity,
@@ -106,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   )),
               ElevatedButton(onPressed: () {}, child: Text("Click me")),
               FilledButton(onPressed: () {}, child: Text("Click me")),
-              TextButton(onPressed: () {}, child: Text("Click me"))
+              TextButton(onPressed: () {}, child: Text("Click me")),
             ],
           ),
         ),

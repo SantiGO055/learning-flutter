@@ -1,23 +1,37 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_test/second_page.dart';
-import 'package:flutter_app_test/third_page.dart';
-import 'package:flutter_app_test/views/data/notifiers.dart';
-import 'package:flutter_app_test/views/pages/welcome_page.dart';
+import 'package:app_incense/second_page.dart';
+import 'package:app_incense/third_page.dart';
+import 'package:app_incense/views/data/constants.dart';
+import 'package:app_incense/views/data/notifiers.dart';
+import 'package:app_incense/views/pages/welcome_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); 
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    initThemeMode();
+    super.initState();
+  }
+
+  Future<void> initThemeMode() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool? valueDarkMode = prefs.getBool(KConstants.themeModeKey);
+    isDarkModeNotifier.value = valueDarkMode ?? false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
