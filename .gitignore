@@ -61,10 +61,6 @@ ios/Flutter/Flutter.framework/
 ios/Flutter/App.framework/
 ios/Flutter/Flutter.podspec
 
-# Dependencies
-/pubspec.lock
-/pubspec.yaml
-
 # Archivos de entorno
 .env
 .env.*
