@@ -41,3 +41,33 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Archivos generados por Flutter
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.idea/
+*.iml
+*.lock
+*.log
+*.json
+
+# Build directories
+build/
+android/app/build/
+ios/Flutter/Flutter.framework/
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.podspec
+
+# Dependencies
+/pubspec.lock
+/pubspec.yaml
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos de configuración local
+local.properties
