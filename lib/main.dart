@@ -71,7 +71,7 @@ class _MyScaffoldAppState extends State<MyScaffoldApp> {
                 brightness: isDarkMode ? Brightness.dark : Brightness.light,
               ),
             ),
-            home: WelcomePage(),
+            home: WelcomePage(), //redirige a pantalla de bienvenida
           );
         });
   }
