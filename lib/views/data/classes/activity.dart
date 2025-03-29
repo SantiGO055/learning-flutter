@@ -1,7 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'dart:ffi';
-
 class Activity {
   final String activity;
   final String type;
