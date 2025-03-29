@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:app_incense/views/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_incense/second_page.dart';
 import 'package:app_incense/third_page.dart';
@@ -36,7 +37,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyScaffoldApp(),
+      home: const SplashScreen(), //aca primero arranca splashscreen
       routes: {
         MyScaffoldApp.routeName: (_) => const MyScaffoldApp(),
         SecondPage.routeName: (_) => const SecondPage(),
